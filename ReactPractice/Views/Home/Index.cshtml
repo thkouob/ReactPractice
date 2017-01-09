@@ -3,5 +3,19 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<script src="~/Scripts/react/react.js"></script>
+<script src="~/Scripts/react/react-dom.js"></script>
 
+<h2>React Demo</h2>
+
+<div id="root">
+    <!-- This div's content will be managed by React. -->
+</div>
+<script>
+    var Message = React.createClass({
+        render: function () {
+            return (React.createElement("h3", null, "Hello world!"));
+        }
+    });
+    ReactDOM.render(React.createElement(Message, null), document.getElementById("root"));
+</script>
