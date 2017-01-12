@@ -18,5 +18,10 @@ namespace ReactPractice.Controllers
         {
             return View();
         }
+
+        public ActionResult DemoESExample()
+        {
+            return View();
+        }
     }
 }

@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "DemoESExample";
+}
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser-polyfill.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.js"></script>
+<script src="~/Scripts/react/react.js"></script>
+<script src="~/Scripts/react/react-dom.js"></script>
+
+<h2>DemoESExample</h2>
+
+<div id="root">
+    <!-- This div's content will be managed by React. -->
+</div>
+<p>
+    Reference<br />
+    <a href="https://babeljs.io/blog/2015/06/07/react-on-es6-plus">[Bebel] React on ES6+</a><br />
+    <a href="http://blog.techbridge.cc/2016/04/04/react-react-native-es5-es6-cheat-sheet/">一看就懂的 React ES5、ES6+ 常見用法對照表</a><br />
+</p>
+
+
+<p>Further reading</p>
+<a href="http://es6.ruanyifeng.com/#docs/class">ECMAScript 6 入門 - Classes</a>
+
+
+<script type="text/babel">
+    @*ES5*@
+    @*var Message = React.createClass({
+        render: function(){
+        return (
+        <h3>Hello, world!</h3>)
+        }
+        }); *@
+
+    @*ES6*@
+    class Message extends React.Component{
+    render(){
+    return
+    <h3>Hello, world!</h3>
+    }
+    }
+
+    ReactDOM.render(
+    <message />, document.getElementById('root'));
+
+    @*大小寫有差異...小心大小寫*@
+</script>
