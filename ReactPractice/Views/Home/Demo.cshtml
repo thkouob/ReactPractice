@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Demo";
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser-polyfill.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.js"></script>
+
+<script src="~/Scripts/react/react.js"></script>
+<script src="~/Scripts/react/react-dom.js"></script>
+
+<h2>React Demo with Babel</h2>
+
+<div id="root">
+    <!-- The content in this div will be managed by React. -->
+</div>
+
+
+@*** "type="text/babel""*@
+<script type="text/babel">
+    ReactDOM.render(
+    <h3>Hello, world!</h3>,
+    document.getElementById('root')
+    );
+</script>
