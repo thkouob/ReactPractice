@@ -1,0 +1,210 @@
+﻿@{
+    ViewBag.Title = "DemoComponAndLifecyc";
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser-polyfill.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.js"></script>
+<script src="~/Scripts/react/react.js"></script>
+<script src="~/Scripts/react/react-dom.js"></script>
+
+<h2>DemoComponAndLifecyc</h2>
+
+
+<h4>Component Example</h4>
+<div id="root">
+    <!-- This div's content will be managed by React. -->
+</div>
+<p>ES6</p>
+<script type="text/babel">
+    @*第一字需要大寫*@
+    class Message extends React.Component {
+        render() {
+            return <h3>Hello world !</h3>;
+        }
+    }
+    const element = <Message />;
+
+    ReactDOM.render(
+        element,
+        document.getElementById('root')
+    );
+</script>
+
+<div id="root1">
+    <!-- This div's content will be managed by React. -->
+</div>
+
+<p>Without ES6</p>
+<script type="text/babel">
+    @*第一字需要大寫*@
+    var Message = React.createClass({
+        render: function () {
+            return <h3>Hello world !</h3>
+        }
+    });
+    const element = <Message />;
+
+    ReactDOM.render(
+        element,
+        document.getElementById('root1')
+    );
+</script>
+<br />
+<h4>Component Initial State</h4>
+
+<p>
+    注意設的參數大小寫要一致<br />
+    EX: '< Message initialCount="2" />'
+</p>
+<div id="root3">
+    <!-- This div's content will be managed by React. -->
+</div>
+<p>ES6</p>
+<script type="text/babel">
+    @*第一字需要大寫*@
+    class Message extends React.Component {
+        constructor(props){
+        super(props)
+            this.state={count:this.props.initialCount}
+        }
+        render() {
+            return <h3>Count: {this.state.count}</h3>;
+        }
+    }
+    const element = <Message initialCount="2" />;
+    ReactDOM.render(
+        element,
+        document.getElementById('root3')
+    );
+</script>
+
+<div id="root4">
+    <!-- This div's content will be managed by React. -->
+</div>
+
+<p>Without ES6</p>
+
+<script type="text/babel">
+    @*第一字需要大寫*@
+    var Message = React.createClass({
+        getInitialState:function(){
+            return {count:this.props.initialCount};
+        },
+        render: function () {
+            return <h3>Count: {this.state.count}</h3>
+        }
+    });
+
+    const element = <Message initialCount="2" />;
+    ReactDOM.render(
+        element,
+        document.getElementById('root4')
+    );
+</script>
+
+<h4>Component Initial State from Ajax</h4>
+<div id="root5">
+    <!-- This div's content will be managed by React. -->
+</div>
+<p>ES6</p>
+<script type="text/babel">
+    const url='@Url.Action("GetData")'
+    @*第一字需要大寫*@
+    class Message extends React.Component {
+        constructor(props){
+            super(props)
+                this.state={count:0}
+        }
+        componentDidMount(){
+            $.get(url,(result)=>{
+                this.setState({count:result.count})
+            })
+        }
+        render() {
+            return <h3>Count: {this.state.count}</h3>;
+        }
+    }
+    const element = <Message />;
+    ReactDOM.render(
+        element,
+        document.getElementById('root5')
+    );
+</script>
+
+<div id="root6">
+    <!-- This div's content will be managed by React. -->
+</div>
+
+<p>Without ES6</p>
+
+<script type="text/babel">
+    const url='@Url.Action("GetData")'
+    @*第一字需要大寫*@
+    var Message = React.createClass({
+        getInitialState:function(){
+            return {count:0};
+        },
+        componentDidMount:function(){
+            let self=this;
+            $.get(url,function (result){
+                return self.setState({count:result.count})
+            })
+        },
+        render: function () {
+            return <h3>Count: {this.state.count}</h3>
+        }
+    });
+    const element = <Message />;
+    ReactDOM.render(
+        element,
+        document.getElementById('root6')
+    );
+</script>
+
+<p>
+    Lifecycle<br />
+    Mounting (These methods are called when an instance of a component is being created and inserted into the DOM:)<br />
+    <ol>
+        <li>
+            <a href="https://facebook.github.io/react/docs/react-component.html#constructor">constructor()</a>
+        </li>
+        <li>
+            <a href="https://facebook.github.io/react/docs/react-component.html#componentwillmount">componentWillMount()</a>
+        </li>
+        <li>
+            <a href="https://facebook.github.io/react/docs/react-component.html#render">render()</a>
+        </li>
+        <li>
+            <a href="https://facebook.github.io/react/docs/react-component.html#componentdidmount">componentDidMount()</a>
+        </li>
+    </ol>
+    Updating (An update can be caused by changes to props or state. These methods are called when a component is being re-rendered:)<br />
+    <ol>
+        <li>
+            <a href="https://facebook.github.io/react/docs/react-component.html#componentwillreceiveprops">componentWillReceiveProps()</a>
+        </li>
+        <li>
+            <a href="https://facebook.github.io/react/docs/react-component.html#shouldcomponentupdate">shouldComponentUpdate()</a>
+        </li>
+        <li>
+            <a href="https://facebook.github.io/react/docs/react-component.html#componentwillupdate">componentWillUpdate()</a>
+        </li>
+        <li>
+            <a href="https://facebook.github.io/react/docs/react-component.html#render">render()</a>
+        </li>
+        <li>
+            <a href="https://facebook.github.io/react/docs/react-component.html#componentdidupdate">componentDidUpdate()</a>
+        </li>
+    </ol>
+    Unmounting (This method is called when a component is being removed from the DOM:)<br />
+    <ol>
+        <li>
+            <a href="https://facebook.github.io/react/docs/react-component.html#componentwillunmount">componentWillUnmount()</a>
+        </li>
+    </ol>
+</p>
+
+<p>
+    Reference<br />
+    <a href="https://facebook.github.io/react/docs/react-component.html">React Component</a>
+</p>

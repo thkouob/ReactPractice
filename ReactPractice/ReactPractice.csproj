@@ -138,6 +138,7 @@
     <Content Include="Views\Home\Demo.cshtml" />
     <Content Include="Views\Home\DemoESExample.cshtml" />
     <Content Include="Views\Home\DemoSyntax.cshtml" />
+    <Content Include="Views\Home\DemoComponAndLifecyc.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
