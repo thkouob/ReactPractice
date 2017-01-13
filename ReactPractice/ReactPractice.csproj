@@ -137,6 +137,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Views\Home\Demo.cshtml" />
     <Content Include="Views\Home\DemoESExample.cshtml" />
+    <Content Include="Views\Home\DemoSyntax.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

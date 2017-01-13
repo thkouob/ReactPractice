@@ -1,0 +1,98 @@
+﻿@{
+    ViewBag.Title = "DemoSyntax";
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser-polyfill.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.js"></script>
+<script src="~/Scripts/react/react.js"></script>
+<script src="~/Scripts/react/react-dom.js"></script>
+
+<h2>DemoSyntax</h2>
+
+<div id="root">
+    <!-- This div's content will be managed by React. -->
+</div>
+
+<p>const 是es6的語法，類似<a href="https://msdn.microsoft.com/zh-tw/library/e6w8fe1b.aspx">c#的const</a>，簡易來說就是一個不可改變的常數，但JSX予許使用Html與JS混合使用。</p>
+
+<script type="text/babel">
+    const element =
+    <h3>Hello, world!</h3>;
+    ReactDOM.render(
+    <div>{element}</div>, document.getElementById('root'));
+</script>
+
+
+<div id="root1">
+    <!-- This div's content will be managed by React. -->
+</div>
+
+<p>{ } 使用大括號是處理JSX 參數、方法等標示方式。</p>
+<script type="text/babel">
+    function fullName(user){
+    return user.firstName+' '+ user.lastName;
+    }
+    const user={
+    firstName:'Leo',
+    lastName:'Li'
+    }
+    const element =
+    <h3>Hello, {fullName(user)}!</h3>;
+    ReactDOM.render(
+    <div>{element}</div>,document.getElementById('root1'));
+</script>
+
+
+<div id="root2">
+    <!-- This div's content will be managed by React. -->
+</div>
+
+<script type="text/babel">
+    const divStyle={
+    color:'blue'
+    }
+    const element =
+    <h3>Hello, world!</h3>;
+    ReactDOM.render(
+    <div style={divStyle}>{element}</div>, document.getElementById('root2'));
+</script>
+
+<div id="root3">
+    <!-- This div's content will be managed by React. -->
+</div>
+
+<p>
+    <a href="http://reactjs.cn/react/docs/multiple-components.html#dynamic-children">Dynamic Children </a>可用陣列產生多個節點，但需加key(唯一值)關鍵字讓React Virtual DOM 識別處理。<br />
+    注意格式排版，亂斷行會程式錯誤....<br />
+    EX: return <\li key={index}>Hi, {item}<\/li>; 不能斷行
+
+</p>
+<script type="text/babel">
+    var data=["leo","lee"];
+    
+    var element =
+    <ol>
+        {data.map(function(item,index){
+            return <li key={index}>Hi, {item}</li>;
+        })}
+    </ol>;
+    ReactDOM.render(
+    <div>{element}</div>,document.getElementById('root3'));
+</script>
+
+<p>
+    Reference
+    <br />
+    <a href="https://facebook.github.io/react/docs/introducing-jsx.html">http://React Docs JSX</a>
+    <br />
+    <a href="http://www.ruanyifeng.com/blog/2015/03/react.html">React 入門實例教程 - JSX</a>
+    <br />
+    <a href="http://es6.ruanyifeng.com/#docs/let#const命令">ECMAScript 6 入門 - const</a>
+    <br />
+    <a href="http://reactjs.cn/react/docs/multiple-components.html#dynamic-children">React Docs Dynamic Children</a>
+</p>
+<p>
+    Further reading
+    <br />
+    <a href="https://github.com/tooto1985/js-array-operations">js-array-operations</a>
+</p>
