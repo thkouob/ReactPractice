@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "DemoProps";
+}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser-polyfill.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.js"></script>
+<script src="~/Scripts/react/react.js"></script>
+<script src="~/Scripts/react/react-dom.js"></script>
+
+
+<h2>DemoProps</h2>
+
+<div id="root">
+    <!-- This div's content will be managed by React. -->
+</div>
+
+<p>props 通常使用在不變動的資料(可當常數來看)，用來處理資料流的傳遞，可以想像似Html 的設定屬性後，接著讀取屬性值做處理。</p>
+
+<script type="text/babel">
+    @*建立一個Message Class，並開放屬性為 name 供資料傳遞*@
+    class Message extends React.Component {
+        render() {
+            return <h3>Hello, {this.props.name}</h3>;
+        }
+    }
+
+    @*建立 Message element ，並設定屬性 name 的值*@
+    const element = <Message name="Leo" />;
+
+    @*render view*@
+    ReactDOM.render(
+        element,
+        document.getElementById('root')
+    );
+</script>
+
+<div id="root2">
+    <!-- This div's content will be managed by React. -->
+</div>
+
+<p>
+    <a href="https://facebook.github.io/react/docs/typechecking-with-proptypes.html#react.proptypes">propTypes </a>可加強型別驗證，避免傳入非預期格式。
+</p>
+
+<script type="text/babel">
+    class Message extends React.Component {
+        render() {
+            return <h3>Age : {this.props.age}</h3>;
+        }
+    }
+
+    @*定義name屬性為字串格式*@
+    Message.propTypes={
+        age:React.PropTypes.number
+    }
+
+    @*error*@
+    const element = <Message age='test' />;
+
+    @*correct*@
+    @*const element = <message age={123} />;*@
+    ReactDOM.render(
+        element,
+        document.getElementById('root2')
+    );
+</script>
+
