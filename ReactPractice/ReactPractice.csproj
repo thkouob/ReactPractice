@@ -141,6 +141,7 @@
     <Content Include="Views\Home\DemoComponAndLifecyc.cshtml" />
     <Content Include="Views\Home\DemoProps.cshtml" />
     <Content Include="Views\Home\DemoState.cshtml" />
+    <Content Include="Views\Home\DemoHandlingEvents.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

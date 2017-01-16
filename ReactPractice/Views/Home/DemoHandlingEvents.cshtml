@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "DemoHandlingEvents";
+}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser-polyfill.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.js"></script>
+<script src="~/Scripts/react/react.js"></script>
+<script src="~/Scripts/react/react-dom.js"></script>
+
+
+<h2>DemoHandlingEvents</h2>
+
+<h3>React Example 1 - Html & React</h3>
+
+<div id="root">
+    <!-- This div's content will be managed by React. -->
+</div>
+
+<button onclick="btnClick()">Click Event</button>
+
+@*Add btnClick function*@
+<script type="text/javascript">
+    function btnClick() {
+        console.info('click')
+    }
+</script>
+
+@*React Event*@
+<script type="text/babel">
+    @*注意onClick大小寫，並用大括號{}呼叫方法*@
+    const element = <button onClick={btnClick}>React Click Event</button>
+    ReactDOM.render(
+        element,
+        document.getElementById('root')
+    );
+</script>
+
+<h3>React Example 2 - ES6 Class</h3>
+
+<div id="root2">
+    <!-- This div's content will be managed by React. -->
+</div>
+
+<script type="text/babel">
+    class Toggle extends React.Component{
+        constructor(){
+            super()
+
+            @*梆定事件 (This binding is necessary to make `this` work in the callback)*@
+        this.btnClick=this.btnClick.bind(this);
+        }
+
+        btnClick(){
+            console.info('react Click')
+        }
+
+        @*注意onClick大小寫，並用大括號{}呼叫方法*@
+        render(){
+            return <button onClick={this.btnClick}>React Click Event</button>
+        }
+    }
+
+    const element = <Toggle />
+
+    ReactDOM.render(
+        element,
+        document.getElementById('root2')
+    );
+</script>
+
+
+<p>
+    Reference
+    <a href="https://facebook.github.io/react/docs/handling-events.html">
+        Handling Events
+    </a>
+</p>
