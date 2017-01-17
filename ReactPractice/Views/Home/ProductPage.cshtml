@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "ProductPage";
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser-polyfill.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.js"></script>
+<script src="~/Scripts/react/react.js"></script>
+<script src="~/Scripts/react/react-dom.js"></script>
+<script src="~/Scripts/home/ProductItem.js" type="text/babel">
+</script>
+<div class="container">
+    <h1>React Demo</h1>
+    <div id="app"></div>
+</div>
+<script>window.App = {};</script>
+<script type="text/babel">
+    @*//like var ProductItem = window.App.ProductItem;*@
+    const { ProductItem } = window.App;
+    ReactDOM.render(
+    <Productitem />,
+    document.getElementById('app')
+    )
+</script>
+
